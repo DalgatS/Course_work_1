@@ -3,6 +3,7 @@ public class Employee {
     private final String fullName;
     private String department;
     private int salary;
+    private static int idCount = 1;
        public int id;
 
 
@@ -11,7 +12,7 @@ public class Employee {
         this.fullName = fullName;
         this.department = department;
         this.salary = salary;
-        this.id++;
+        this.id = idCount++;
     }
 
 
