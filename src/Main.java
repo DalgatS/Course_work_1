@@ -11,9 +11,7 @@ public class Main {
         employees[7] = new Employee("Иванов Иван Иванович7", "3", 170000);
         employees[8] = new Employee("Иванов Иван Иванович8", "4", 180000);
         employees[9] = new Employee("Иванов Иван Иванович9", "5", 190000);
-        System.out.println(employees[7].getId());
-        System.out.println(employees[2].getId());
-        printEmployees(employees);
+
 
         int salarySum = 0;
         for (int i = 0; i < employees.length; i++) {
@@ -42,18 +40,26 @@ public class Main {
         System.out.println("Максимальная ЗП - " + employees[idMaxSalary].toString());
 
         double salaryAverage = (double) salarySum / employees.length;
-        System.out.println(salaryAverage);
+        System.out.println("Средняя ЗП - " + salaryAverage);
 
+        printEmployeesFullName(employees);
+
+        wageIndexation(employees,1.5);
+        for (int i = 0; i < employees.length; i++) {
+            System.out.println(employees[i].getSalary());
+        }
+    }
+
+
+    public static void printEmployeesFullName(Employee[] employees) {
         for (int i = 0; i < employees.length; i++) {
             System.out.println(employees[i].getFullName());
         }
     }
 
-
-    public static void printEmployees(Employee[] employees) {
+    public static void wageIndexation(Employee[] employees, double indexationRate) {
         for (int i = 0; i < employees.length; i++) {
-            System.out.println(employees[i]);
+            employees[i].setSalary((int) (employees[i].getSalary() * indexationRate));
         }
     }
-
 }
