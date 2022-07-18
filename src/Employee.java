@@ -1,13 +1,13 @@
 public class Employee {
 
     private final String fullName;
-    private String department;
+    private int department;
     private int salary;
     private static int idCount = 1;
        public int id;
 
 
-    public Employee(String fullName, String department, int salary) {
+    public Employee(String fullName, int department, int salary) {
 
         this.fullName = fullName;
         this.department = department;
@@ -20,7 +20,7 @@ public class Employee {
         return fullName;
     }
 
-    public String getDepartment() {
+    public int getDepartment() {
         return department;
     }
 
@@ -33,7 +33,7 @@ public class Employee {
         return id;
     }
 
-    public void setDepartment(String department) {
+    public void setDepartment(int department) {
         this.department = department;
     }
 
