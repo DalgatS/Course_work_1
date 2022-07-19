@@ -16,12 +16,33 @@ public class Main {
         employees[9] = new Employee("Иванов Иван Иванович9", 5, 190000);
 
 
+        sumSalary(employees);
+        minSalary(employees);
+        maxSalary(employees);
+        averageSalary(employees);
+        printEmployeesFullName(employees);
+
+        System.out.println();
+        System.out.println();
+        System.out.println("Advanced difficulty");
+        System.out.println();
+        wageIndexation(employees, 1.5);
+        departmentMinSalary(employees, 2);
+        departmentMaxSalary(employees, 3);
+        departmentSumSalary(employees, 4);
+        departmentAverageSalary(employees, 4);
+
+    }
+
+    public static void sumSalary(Employee[] employees) {
         int salarySum = 0;
         for (int i = 0; i < employees.length; i++) {
             salarySum += employees[i].getSalary();
         }
         System.out.println("Сумма затрат на зарплаты в месяц - " + salarySum);
+    }
 
+    public static void minSalary(Employee[] employees) {
         int minSalary = employees[0].getSalary();
         int idMinSalary = 0;
         for (int i = 0; i < employees.length; i++) {
@@ -31,7 +52,9 @@ public class Main {
             }
         }
         System.out.println("Минимальная ЗП - " + employees[idMinSalary].toString());
+    }
 
+    public static void maxSalary(Employee[] employees) {
         int maxSalary = employees[0].getSalary();
         int idMaxSalary = 0;
         for (int i = 0; i < employees.length; i++) {
@@ -41,28 +64,16 @@ public class Main {
             }
         }
         System.out.println("Максимальная ЗП - " + employees[idMaxSalary].toString());
-
-        double salaryAverage = (double) salarySum / employees.length;
-        System.out.println("Средняя ЗП - " + salaryAverage);
-
-        printEmployeesFullName(employees);
-
-        System.out.println();
-        System.out.println();
-        System.out.println("Advanced difficulty");
-        System.out.println();
-        wageIndexation(employees, 1.5);
-        // for (int i = 0; i < employees.length; i++) {
-        //     System.out.println(employees[i].getSalary());
-        //  }
-
-        departmentMinSalary(employees, 2);
-        departmentMaxSalary(employees, 3);
-        departmentSumSalary(employees, 4);
-        departmentAverageSalary(employees,4);
-
     }
 
+    public static void averageSalary(Employee[] employees) {
+        int salarySum = 0;
+        for (int i = 0; i < employees.length; i++) {
+            salarySum += employees[i].getSalary();
+        }
+        double salaryAverage = (double) salarySum / employees.length;
+        System.out.println("Средняя ЗП - " + salaryAverage);
+    }
 
     public static void printEmployeesFullName(Employee[] employees) {
         for (int i = 0; i < employees.length; i++) {
@@ -114,15 +125,15 @@ public class Main {
         System.out.println("Сумма затрат на зарплаты " + departmentNum + " отдела в месяц - " + salarySum);
     }
 
-    public static void departmentAverageSalary (Employee [] employees, int departmentNum) {
+    public static void departmentAverageSalary(Employee[] employees, int departmentNum) {
         int salarySum = 0;
-int employeesCount = 0;
+        int employeesCount = 0;
         for (int i = 0; i < employees.length; i++) {
             if (employees[i].getDepartment() == departmentNum) {
                 salarySum += employees[i].getSalary();
                 employeesCount++;
             }
         }
-        System.out.println("Средняя арифметическая затрат на зарплаты " + departmentNum + " отдела в месяц - " + salarySum/employeesCount);
+        System.out.println("Средняя арифметическая затрат на зарплаты " + departmentNum + " отдела в месяц - " + salarySum / employeesCount);
     }
 }
